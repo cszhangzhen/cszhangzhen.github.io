@@ -12,6 +12,45 @@
 
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
+
+<style>
+.navbar {
+    background-color: #e6eaf4;
+    border-color: #dfe3ef;
+    color: #444;
+}
+@media (min-width: 768px) {
+  .navbar-nav.navbar-center {
+    float: none;
+    display: table;
+    margin: 0 auto;
+  }
+body {
+    padding-top: 20px;
+}
+}
+</style>
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-main-collapse" style="max-height: 435px; transition: max-height 0.15s ease-out;">
+          <ul class="nav navbar-nav navbar-center">
+            <li><a href="#"><strong>Home</strong></a></li>
+            <li><a href="#News"><strong>News</strong></a></li>
+            <li><a href="#Publications"><strong>Publications</strong></a></li>
+            <li><a href="#Service"><strong>Service</strong></a></li>
+            <li><a href="#Honors"><strong>Honors</strong></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
 <body class="bg_colour">
     <table border=0 class="bg_colour" style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
         <tr style="padding:0px">
@@ -43,7 +82,8 @@
                 <hr class="soft">
 
                 <!-- <br> -->
-                <button style="border:0px transparent; background-color: transparent;outline:none;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-news" id="news"><heading>Recent News</heading></button>
+                <button style="border:0px transparent; background-color: transparent;outline:none;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-news" id="news">
+                <heading id="News">Recent News</heading></button>
                 <!-- <div class="container"> -->
                 <div id="content-news" class="collapse in">
                 <!-- <div class="scroll">  -->
@@ -116,7 +156,7 @@
 
 <button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
 class="collapsible" data-toggle="collapse" data-target="#content-research" id="research">
-<heading>Selected Research Papers</heading>
+<heading id="Publications">Selected Research Papers</heading>
 </button>
 
 <div id="content-research" class="collapse in">
@@ -141,7 +181,7 @@ class="collapsible" data-toggle="collapse" data-target="#content-research" id="r
        WWW 2025
       </td>
       <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://www2025.thewebconf.org/">
+        <a href="https://arxiv.org/pdf/2502.03033">
           <papertitle>Aggregate to Adapt: Node-Centric Aggregation for Multi-Source-Free Graph Domain Adaptation</papertitle>
         </a>
         <br>
@@ -612,7 +652,7 @@ class="collapsible" data-toggle="collapse" data-target="#content-education" id="
 
 <button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
 class="collapsible" data-toggle="collapse" data-target="#content-academic" id="academic">
-<heading>Academic Activities</heading>
+<heading id="Service">Academic Activities</heading>
 </button>
 <div id="content-academic" class="collapse in">
 <table border=0 class="bg_colour"
@@ -643,6 +683,8 @@ class="collapsible" data-toggle="collapse" data-target="#content-academic" id="a
            </ul>
           <li>Journal reviewer</li>
            <ul>
+             <li>Invited Reviewer for IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</li>
+             <li>Invited Reviewer for IEEE Transactions on Image Processing (TIP)</li>
              <li>Invited Reviewer for IEEE Transactions on Knowledge and Data Engineering (TKDE)</li>
              <li>Invited Reviewer for ACM Transactions on Information Systems (TOIS)</li>
              <li>Invited Reviewer for ACM Computing Surveys (CSUR)</li>
@@ -663,7 +705,7 @@ class="collapsible" data-toggle="collapse" data-target="#content-academic" id="a
 <hr class="soft">
 <button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
 class="collapsible" data-toggle="collapse" data-target="#content-award" id="award">
-<heading>Honors & Awards</heading>
+<heading id="Honors">Honors & Awards</heading>
 </button>
 <div id="content-award" class="collapse in">
 <table border=0 class="bg_colour"
