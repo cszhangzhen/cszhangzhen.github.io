@@ -30,6 +30,37 @@ body {
     padding-top: 20px;
 }
 
+
+/* Custom toggle button styles - MOBILE ONLY */
+    .navbar-toggle-custom {
+        background: #007bff;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin: 8px 0;
+        transition: all 0.3s ease;
+        display: none; /* Hidden by default */
+    }
+    
+    /* Show custom button only on mobile screens */
+    @media (max-width: 767px) {
+        .navbar-toggle-custom {
+            display: inline-block;
+        }
+    }
+    
+    .navbar-toggle-custom:hover {
+        background: #0056b3;
+        transform: translateY(-1px);
+    }
+    
+    .navbar-toggle-custom:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+    }
+    
+
  /* Footer Counter - matching main body background */
     .footer-counter {
         text-align: center;
@@ -128,6 +159,13 @@ body {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+          </button>
+        </div>
+
+         <!-- Custom toggle button on the right - MOBILE ONLY -->
+        <div class="navbar-right">
+          <button type="button" class="navbar-toggle-custom" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i> Menu
           </button>
         </div>
 
