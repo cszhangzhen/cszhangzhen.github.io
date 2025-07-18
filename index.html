@@ -33,20 +33,29 @@ body {
 
 /* Custom toggle button styles - MOBILE ONLY */
     .navbar-toggle-custom {
-        background: #007bff;
+        background: #337ab7;
         border: none;
         color: white;
         padding: 8px 12px;
         border-radius: 4px;
-        margin: 8px 0;
         transition: all 0.3s ease;
         display: none; /* Hidden by default */
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1000;
+        width: auto;
+        min-width: 60px;
     }
     
     /* Show custom button only on mobile screens */
     @media (max-width: 767px) {
         .navbar-toggle-custom {
             display: inline-block;
+        }
+        .navbar-header {
+            position: relative;
         }
     }
     
@@ -59,7 +68,7 @@ body {
         outline: none;
         box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
     }
-    
+        
 
  /* Footer Counter - matching main body background */
     .footer-counter {
@@ -140,6 +149,91 @@ body {
 
 .copyright a:hover {
     text-decoration: underline;
+}
+
+/* Responsive project layout */
+.project-container {
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.project-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.project-image {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+}
+
+.project-content {
+  flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
+}
+
+.project-links {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.project-links li {
+  margin-bottom: 5px;
+  word-break: break-all; /* Breaks long URLs */
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .project-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .project-image {
+    width: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .project-image img {
+    max-width: 150px;
+  }
+  
+  .project-content {
+    width: 100%;
+  }
+  
+  .project-links {
+    text-align: left;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .project-container {
+    padding: 10px;
+  }
+  
+  .project-image {
+    width: 120px;
+  }
+  
+  .project-image img {
+    max-width: 120px;
+  }
+  
+  papertitle big {
+    font-size: 16px;
+  }
 }
 
 </style>
@@ -710,29 +804,24 @@ class="collapsible" data-toggle="collapse" data-target="#content-education" id="
 </button>
 <div id="content-education" class="collapse in">
 
-<table border=0 class="bg_colour"
-  style="padding:20px;width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-  <tbody>
-
-    <tr>
-      <td style="padding:10px;width:25%;vertical-align:middle">
-        <div class="one">
-          <img src='images/pygda_logo.png' width="200">
-        </div>
-      </td>
-      <td style="padding:10px;width:75%;vertical-align:text-top;">
-        <papertitle style="color:darkblue"><big>PyGDA</big> </papertitle>
-        <papertitle><big> is a Python library for Graph Domain Adaptation</big></papertitle>
-        <br>
-          <li>Library: <a href="https://github.com/pygda-team/pygda">https://github.com/pygda-team/pygda</a></li>
-          <li>Docs: <a href="https://pygda.readthedocs.io/en/stable/">https://pygda.readthedocs.io/en/stable/</a> </li>
-        <br>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="project-container">
+  <div class="project-item">
+    <div class="project-image">
+      <img src='images/pygda_logo.png' alt="PyGDA Logo">
+    </div>
+    <div class="project-content">
+      <papertitle style="color:darkblue"><big>PyGDA</big> </papertitle>
+      <papertitle><big> is a Python library for Graph Domain Adaptation</big></papertitle>
+      <br>
+      <ul class="project-links">
+        <li>Library: <a href="https://github.com/pygda-team/pygda">https://github.com/pygda-team/pygda</a></li>
+        <li>Docs: <a href="https://pygda.readthedocs.io/en/stable/">https://pygda.readthedocs.io/en/stable/</a> </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
+</div>
 
 <hr class="soft">
 <button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
