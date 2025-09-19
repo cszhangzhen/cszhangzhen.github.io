@@ -1,968 +1,952 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Zhen Zhang</title>
-
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <meta name="author" content="Zhen Zhang">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Description" content="Zhen Zhang | PostDoc@NUS">
-    <meta name="keywords" content="Zhen Zhang">
-
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
-
-<style>
-.navbar {
-    background-color: #e6eaf4;
-    border-color: #dfe3ef;
-    color: #444;
-}
-@media (min-width: 768px) {
-  .navbar-nav.navbar-center {
-    float: none;
-    display: table;
-    margin: 0 auto;
-  }
-}
-body {
-    padding-top: 20px;
-}
-
-
-/* Custom toggle button styles - MOBILE ONLY */
-    .navbar-toggle-custom {
-        background: #337ab7;
-        border: none;
-        color: white;
-        padding: 8px 12px;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-        display: none; /* Hidden by default */
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1000;
-        width: auto;
-        min-width: 60px;
-    }
-    
-    /* Show custom button only on mobile screens */
-    @media (max-width: 767px) {
-        .navbar-toggle-custom {
-            display: inline-block;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhen Zhang, NJU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.2/css/academicons.min.css">
+    <style>
+        :root {
+            --primary-color: #224b8d;
+            --secondary-color: #DA1212;
+            --light-bg: #f8f9fa;
+            --text-color: #333;
+            --bg-color: #ffffff;
         }
-        .navbar-header {
-            position: relative;
-        }
-    }
-    
-    .navbar-toggle-custom:hover {
-        background: #0056b3;
-        transform: translateY(-1px);
-    }
-    
-    .navbar-toggle-custom:focus {
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
-    }
         
+        /* 护眼模式样式 */
+        body.eye-protection {
+            --bg-color: #f0f2e9;
+            --text-color: #3a4035;
+            --light-bg: #e6e9d9;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            padding-top: 80px;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .container {
+            max-width: 1140px; /* 限制最大宽度，使其不致过宽 */
+        }
+        
+        .navbar-custom {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-custom .navbar-nav .nav-link {
+            color: #555;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+        
+        .navbar-custom .navbar-nav .nav-link:hover,
+        .navbar-custom .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .profile-img {
+            max-height: 260px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.8rem; /* 减小标题底部间距 */
+        }
+        
+        .section-title {
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 0.3em;
+            margin-bottom: 1rem; /* 减小标题与内容间距 */
+        }
+        
+        .news-item {
+            margin-bottom: 0.8em;
+            line-height: 1.5;
+        }
+        
+        .social-icon {
+            font-size: 28px; /* 增大社交图标 */
+            color: var(--primary-color);
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+        }
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .publication-item {
+            margin-bottom: 1.5em;
+            padding-bottom: 1em;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .pub-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.3em;
+        }
+        
+        .author-list {
+            margin-bottom: 0.3em;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #1a3a6b;
+            border-color: #1a3a6b;
+        }
+        
+        .page-section {
+            display: none;
+            padding: 20px 0;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+        
+        .news-container {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        /* Custom scrollbar for news */
+        .news-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .news-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .news-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+        
+        .news-container::-webkit-scrollbar-thumb:hover {
+            background: #aaa;
+        }
 
- /* Footer Counter - matching main body background */
-    .footer-counter {
-        text-align: center;
-        padding: 20px 0;
-        background-color: #fff; /* Same as main body */
-        border-top: 1px solid #e9ecef;
-        margin-top: auto;
-    }
-    
-    .counter-container {
-        display: inline-block;
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 15px;
-        padding: 8px 15px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        border: 1px solid #e9ecef;
-        font-size: 12px;
-        color: #6c757d;
-        transition: all 0.3s ease;
-    }
-    
-    .counter-container:hover {
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        transform: translateY(-1px);
-    }
-    
-    .counter-icon {
-        margin-right: 5px;
-        color: #007bff;
-        font-size: 10px;
-    }
-    
-     .counter-text {
-        font-size: 11px;
-        color: #6c757d;
-        margin-top: 5px;
-    }
-    
-    .counter-text a {
-        color: #007bff;
-        text-decoration: none;
-        font-size: 10px;
-    }
-    
-    .counter-text a:hover {
-        text-decoration: underline;
-    }
-    
-    /* Hide the default counter styling */
-    .footer-counter iframe,
-    .footer-counter img {
-        border: none !important;
-        background: transparent !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+        .lead strong {
+            font-weight: bold;
+        }
+        
+        /* 链接样式 - 移除下划线 */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .university-member {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .university-photo {
+            min-height: auto !important;
+            height: 150px !important;
+            width: auto !important;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            aspect-ratio: 2 / 1; /* always square */
 
-    /* Copyright Section */
-.copyright {
-    text-align: center;
-    padding: 15px 0;
-    background-color: #fff;
-    border-top: 1px solid #e9ecef;
-    color: #6c757d;
-    font-size: 12px;
-}
+        }
+        
+        .university-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .member-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .member-info {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .university-section {
+            margin-bottom: 3rem;
+        }
 
-.copyright p {
-    margin: 0;
-    text-align: center;
-}
-
-.copyright a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.copyright a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive project layout */
-.project-container {
-  padding: 20px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.project-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 10px 0;
-}
-
-.project-image {
-  flex-shrink: 0;
-  width: 200px;
-}
-
-.project-image img {
-  width: 100%;
-  height: auto;
-  max-width: 200px;
-}
-
-.project-content {
-  flex: 1;
-  min-width: 0; /* Prevents flex item from overflowing */
-}
-
-.project-links {
-  margin: 10px 0;
-  padding-left: 20px;
-}
-
-.project-links li {
-  margin-bottom: 5px;
-  word-break: break-all; /* Breaks long URLs */
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .project-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .project-image {
-    width: 150px;
-    margin-bottom: 15px;
-  }
-  
-  .project-image img {
-    max-width: 150px;
-  }
-  
-  .project-content {
-    width: 100%;
-  }
-  
-  .project-links {
-    text-align: left;
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-  .project-container {
-    padding: 10px;
-  }
-  
-  .project-image {
-    width: 120px;
-  }
-  
-  .project-image img {
-    max-width: 120px;
-  }
-  
-  papertitle big {
-    font-size: 16px;
-  }
-}
-
-</style>
-
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-      <div class="container">
-        <!--
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-            <i class="fa fa-bars"></i>
-          </button>
+        .project-section {
+            margin-bottom: 3rem;
+        }
+        
+        .alumni-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .visiting-students-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 护眼模式按钮 */
+        .eye-protection-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .eye-protection-toggle:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Openings section styles */
+        .opening-section {
+            margin-bottom: 2rem;
+        }
+        
+        .opening-section h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .requirements-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Research section styles */
+        .research-area {
+            margin-bottom: 2.5rem;
+        }
+        
+        .research-area h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .research-topics {
+            padding-left: 1.5rem;
+        }
+        
+        .research-topics li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Publications filter styles */
+        .filter-container {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: var(--light-bg);
+            border-radius: 5px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .filter-btn {
+            background-color: white;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background-color: #f0f5ff;
+        }
+        
+        .year-filter {
+            margin-top: 1rem;
+        }
+        
+        /* Publication category label */
+        .pub-category {
+            display: inline-block;
+            background-color: #e8f0fe;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+        
+        /* Home section styles */
+        .home-header {
+            margin-bottom: 2rem; /* 减小顶部区域底部间距 */
+        }
+        
+        .profile-container {
+            display: flex;
+            align-items: center; /* 垂直居中对齐 */
+            margin-bottom: 2rem;
+            flex-wrap: wrap; /* 响应式处理 */
+        }
+        
+        .profile-image-container {
+            flex: 0 0 auto;
+            margin-right: 2rem;
+        }
+        
+        .profile-info {
+            flex: 1;
+            min-width: 300px; /* 确保小屏幕有足够宽度 */
+        }
+        
+        .home-section {
+            margin-bottom: 2rem; /* 减小各部分间距 */
+        }
+        
+        .awards-list li, .service-list li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        /* 优化姓名标题样式 */
+        .name-title {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        /* 实验室Logo容器样式 */
+        .lab-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* 整体居中 */
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .lab-logo {
+            height: 60px; /* 保持相同高度，使Logo大小一致 */
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .chinese-name {
+            font-family: 'Arial', sans-serif !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-link" href="#"><h5>Zhen Zhang @ NJU</h5></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-page="home"><h5>Home</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="publications"><h5>Publications</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="experience"><h5>Experience</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="projects"><h5>Projects</h5></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    -->
-    <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-
-         <!-- Custom toggle button on the right - MOBILE ONLY -->
-        <div class="navbar-right">
-          <button type="button" class="navbar-toggle-custom" data-toggle="collapse" data-target="#navbar-collapse">
-            <i class="fa fa-bars"></i> Menu
-          </button>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- <div class="collapse navbar-collapse navbar-main-collapse" style="max-height: 435px; transition: max-height 0.15s ease-out;"> -->
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav navbar-center">
-            <li><a href="#"><strong>Home</strong></a></li>
-            <li><a href="#News"><strong>News</strong></a></li>
-            <li><a href="#Publications"><strong>Publications</strong></a></li>
-            <li><a href="#Projects"><strong>Projects</strong></a></li>
-            <li><a href="#Experience"><strong>Experience</strong></a></li>
-            <li><a href="#Service"><strong>Service</strong></a></li>
-            <li><a href="#Honors"><strong>Honors</strong></a></li>
-          </ul>
-        </div>
-      </div>
     </nav>
 
-<body class="bg_colour">
-    <table border=0 class="bg_colour" style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-        <tr style="padding:0px">
-            <td style="padding:0px">
-                
-                <!-- Name tab -->
-                <table border=0 class="bg_colour" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-                    <tr style="padding:0px">
-                        <td style="padding:2.5%;width:20%;max-width:20%;vertical-align:middle">
-                            <a href="images/zhen_photo.png"><img style="width:100%;max-width:100%" alt="profile photo" src="images/zhen_photo.png"></a>
-                        </td>
-                        <td style="padding:2.5%;width:80%;vertical-align:middle">
-                            <p style="text-align:center">
-                                <h1  style="text-align:center"><name>Zhen Zhang</name><a href="images/zhen_chinesename.png"><img style="width:20%;max-width:20%" alt="profile photo" src="images/zhen_chinesename.PNG"></a></h1>
-                            </p>
-                            <p> I am a Research Fellow at National University of Singapore, working with Prof. Bingsheng He. I obtained my Ph.D. degree at Zhejiang University advised by Prof. Jiajun Bu. My research interests are mainly in machine leanring and data mining, particularly in graph neural networks, recommender systems, etc. I have served as the PC member for top-tier conferences including ICML, NeurIPS, ICLR, WWW, SIGKDD, AAAI, CVPR, ICCV, ECCV, etc; and the invited reviewer for prestigious journals including TKDE, TOIS, CSUR, etc. Feel free to send me an e-mail if you want to collaborate with me!  
-                            </p>
-                            <p>
-                              Email: zhen at nus dot edu dot sg / zhen_zhang at zju dot edu dot cn
-                            </p>
+    <div class="container">
+        <!-- Home Section -->
+        <section id="home" class="page-section active">
+            <div class="home-header">
+                <div class="profile-container">
+                    <div class="profile-image-container">
+                        <img src="images/zhen.jpg" class="img-fluid profile-img" alt="Zhen Zhang">
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="name-title" style="text-align: center">
+                            <span class="chinese-name">Zhen Zhang</span> 
+                            <img src="images/zhen_chinesename.PNG" style="max-height:80px;" alt="Signature"/>
+                        </h1>
+                        <p class="lead">
+                        I am a Tenure-Track Asistant Professor in School of Intelligence Science and Technology, Nanjing University. I obtained my Ph.D. degree at Zhejiang University advised by Prof. Jiajun Bu. After that, I worked as a Research Fellow at National University of Singapore under the supervision of Prof. Bingsheng He. My research interests are mainly in machine leanring and data mining, particularly in graph neural networks, LLM agents, AI4Science, etc. I have served as the PC member for top-tier conferences including ICML, NeurIPS, ICLR, WWW, SIGKDD, AAAI, CVPR, ICCV, ECCV, etc; and the invited reviewer for prestigious journals including TKDE, TOIS, CSUR, etc. Feel free to send me an e-mail if you want to collaborate with me!
+                        </p>
+                        <p class="lead">
+                            Email: zhen_zhang at nju dot edu dot cn / zhen_zhang at zju dot edu dot cn<br>
+                        </p>
+                        <div class="lead">
                             <p style="text-align:center">
                               <a href="data/Zhen_CV.pdf" target="_blank" >CV</a> &nbsp|&nbsp
                               <a href="https://scholar.google.com/citations?user=8hclVjIAAAAJ&hl=en&oi=sra" target="_blank" >Google Scholar</a> &nbsp|&nbsp
                               <a href="https://github.com/cszhangzhen" target="_blank" >Github</a> 
                             </p>
-                        </td>
-                    </tr>
-                </tbody></table>
-                <hr class="soft">
-
-                <!-- <br> -->
-                <button style="border:0px transparent; background-color: transparent;outline:none;"type="button" class="collapsible" data-toggle="collapse" data-target="#content-news" id="news">
-                <heading id="News">Recent News</heading></button>
-                <!-- <div class="container"> -->
-                <div id="content-news" class="collapse in">
-                <!-- <div class="scroll">  -->
-
-                <table border=0 class="bg_colour" style="padding:20px;width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-                    <tr>
-                        <td>
-                            <p style="color:darkblue; display:inline">01/2025 &nbsp</p>
-                        </td>
-                        <td>
-                            One paper accepted at <a href="https://www2025.thewebconf.org/" target="_blank">theWebConf '25</a>! Check out the <a href="https://arxiv.org/pdf/2502.03033" target="_blank">preprint</a> here!
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <p style="color:darkblue; display:inline">10/2024 &nbsp</p>
-                        </td>
-                        <td>
-                            One paper accepted at <a href="https://www.wsdm-conference.org/2025/" target="_blank">WSDM '25</a>! Check out the <a href="https://arxiv.org/abs/2407.16959" target="_blank">preprint</a> here!
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <p style="color:darkblue; display:inline">09/2024 &nbsp</p>
-                        </td>
-                        <td>
-                            Two papers accepted at <a href="https://neurips.cc/" target="_blank">NeurIPS '24</a>! Check out the <a href="https://arxiv.org/pdf/2407.11052" target="_blank">preprint</a> here!
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <p style="color:darkblue; display:inline">01/2024 &nbsp</p>
-                        </td>
-                        <td>
-                            One paper accepted at <a href="https://www2024.thewebconf.org/" target="_blank">theWebConf '24</a>! Check out the <a href="https://arxiv.org/abs/2403.01467v1" target="_blank">preprint</a> here!
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <p style="color:darkblue; display:inline">01/2024 &nbsp</p>
-                        </td>
-                        <td>
-                            One paper accepted at <a href="https://iclr.cc/Conferences/2024" target="_blank">ICLR '24</a>! Check out the <a href="https://arxiv.org/abs/2310.01015" target="_blank">preprint</a> here!
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <p style="color:darkblue; display:inline">12/2023 &nbsp</p>
-                        </td>
-                        <td>
-                            One paper accepted at <a href="https://aaai.org/aaai-conference/" target="_blank">AAAI '24</a>! Check out the <a href="https://arxiv.org/abs/2402.05660" target="_blank">preprint</a> here!
-                        </td>
-                    </tr>
-
-                </tbody></table>
-                <!-- </div> -->
-                <!-- </div> -->
+                        </div>
+                    </div>
                 </div>
-                <hr class="soft">
+            </div>
 
+            <!-- Profile Section -->
+            <div class="home-section">
+                <h2 class="section-title">Hiring</h2>                
+                <p class="lead" style="text-align:justify; text-justify:inter-ideograph;">
+                    <span class="highlight">🗣📢</span>: I am actively recruiting motivated PhD, Master, and Undergraduate students to join my research group. If you are passionate about research and interested in working with me, contact me via email with your CV and a brief statement of your research interests, prior experience (if any) or future plan. My research interests include, but are not limited to, graph data mining, large language model (LLM) agents, and AI for Science (AI4Science). I am particularly fascinated by the challenges of extracting knowledge and patterns from complex graph-structured data, building intelligent agents powered by LLMs for reasoning and decision-making, and applying advanced AI techniques to accelerate scientific discovery across disciplines such as physics, biology, and materials science.
+                </p>
+            </div>
+            
+            <!-- News Section -->
+            <div class="home-section">
+                <h2 class="section-title">News</h2>
+                <div class="news-container">
+                    <ul class="lead">
+                        <li class="news-item"><strong>(2025.09)</strong> One paper is accepted by <strong>NeurIPS 2025</strong>.</li>
+                        <li class="news-item"><strong>(2025.08)</strong> Invited to serve as an <strong>Area Chair for ICLR 2026</strong>.</li>
+                        <li class="news-item"><strong>(2025.01)</strong> One paper is accepted by <strong>WWW 2025</strong>.</li>
+                        <li class="news-item"><strong>(2024.10)</strong> One paper is accepted by <strong>WSDM 2025</strong>.</li>
+                        <li class="news-item"><strong>(2024.09)</strong> TWo papers are accepted by <strong>NeurIPS 2024</strong>.</li>
+                        <li class="news-item"><strong>(2024.01)</strong> One paper is accepted by <strong>WWWW 2024</strong>.</li>
+                        <li class="news-item"><strong>(2024.01)</strong> One paper is accepted by <strong>ICLR 2024</strong>.</li>
+                        <li class="news-item"><strong>(2023.12)</strong> One paper is accepted by <strong>AAAI 2024</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+                        
+            <!-- Professional Service Section -->
+            <div class="home-section">
+                <h2 class="section-title">Academic Activities</h2>
+                <ul class="lead">
+                    <li>Area Chair / Senior Program Committee Member:
+                        <ul style="padding-left: 40px;">
+                            <li>AC of ICLR 2026</li>
+                            <li>SPC of IJCAI 2025</li>
+                        </ul>
+                    </li>
+                    <li>Program Committee Member or Reviewer:
+                        <ul style="padding-left: 40px;">
+                            <li>Conferences: NeurIPS, ICLR, ICML, CVPR, KDD, WWW, AAAI, ECCV, CIKM, etc.</li>
+                            <li>Journal Reviewer: IEEE TPAMI, IEEE TIP, IEEE TKDE, ACM CSUR, IEEE TNNLS, Neural Networks, etc.
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
+             <!-- Awards Section -->
+            <div class="home-section">
+                <h2 class="section-title">Awards & Honors</h2>
+                <ul class="lead">
+                    <li><p>Outstanding Doctoral Thesis of Zhejiang University</p></li>
+                    <li><p>Nominated for Outstanding Doctoral Thesis in Zhejiang Province</p></li>
+                </ul>
+            </div>
+        </section>
 
-<!-- Projects -->
+        <!-- Publications Section -->
+        <section id="publications" class="page-section">
+            <h2 class="section-title">Publications</h2>
+            
+            <div class="lead">
+                <!-- 2025 Publications -->
+                <div class="publication-item" data-year="2025">
+                    <div class="pub-title">Towards Unsupervised Open-Set Graph Domain Adaptation via Dual Reprogramming</div>
+                    <div class="author-list"><strong>Zhen Zhang</strong>, Bingsheng He.</div>
+                    <div><em>The Thirty-ninth Annual Conference on Neural Information Processing Systems</em>, NeurIPS 2025</div>
+                    <div class="mt-1">
+                        [<a href="https://neurips.cc">PDF</a>]
+                        [<a href="https://neurips.cc">Code</a>]
+                    </div>
+                </div>
+                
+                <div class="publication-item" data-year="2025">
+                    <div class="pub-title">Aggregate to Adapt: Node-Centric Aggregation for Multi-Source-Free Graph Domain Adaptation</div>
+                    <div class="author-list"><strong>Zhen Zhang</strong>, Bingsheng He.</div>
+                    <div><em>ACM The Web Conference</em>, WWW 2025</div>
+                    <div class="mt-1">
+                        [<a href="https://arxiv.org/pdf/2502.03033">PDF</a>]
+                        [<a href="https://github.com/cszhangzhen/GraphATA">Code</a>]
+                    </div>
+                </div>
+                
+                <div class="publication-item" data-year="2025">
+                    <div class="pub-title">Dynamic Graph Transformer with Correlated Spatial-Temporal Positional Encoding</div>
+                    <div class="author-list">Zhe Wang, Sheng Zhou, Jiawei Chen, <strong>Zhen Zhang</strong>, Binbin Hu, Yan Feng, Chun Chen, Can Wang</div>
+                    <div><em>The 18th ACM International Conference on Web Search and Data Mining</em>, WSDM 2025.</div>
+                    <div class="mt-1">
+                        [<a href="https://arxiv.org/pdf/2407.16959">PDF</a>]
+                    </div>
+                </div>
 
-<button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
-class="collapsible" data-toggle="collapse" data-target="#content-research" id="research">
-<heading id="Publications">Selected Research Papers</heading>
-</button>
+                <div class="publication-item" data-year="2024">
+                    <div class="pub-title">AI-powered Fraud Detection in Decentralized Finance: A Project Life Cycle Perspective</div>
+                    <div class="author-list">Bingqiao Luo, <strong>Zhen Zhang</strong>, Qian Wang, Anli Ke, Shengliang Lu, Bingsheng He</div>
+                    <div><em>ACM Computing Surveys</em>, ACM CSUR 2024.</div>
+                    <div class="mt-1">
+                        [<a href="https://dl.acm.org/doi/10.1145/3705296">PDF</a>]
+                        [<a href="https://dl.acm.org/journal/csur">Impact Factor: 23.8</a>]
+                    </div>
+                </div>
 
-<div id="content-research" class="collapse in">
-<table border=0 class="bg_colour"
-  style="padding:20px;width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-  <tbody>
-    <!-- Research Interest -->
-    <tr>
-      <td>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table
-  style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                <div class="publication-item" data-year="2024">
+                    <div class="pub-title">Revisiting, Benchmarking and Understanding Unsupervised Graph Domain Adaptation</div>
+                    <div class="author-list">Meihan Liu, <strong>Zhen Zhang</strong>, Jiachen Tang, Jiajun Bu, Bingsheng He, Sheng Zhou</div>
+                    <div><em>The Thirty-eighth Annual Conference on Neural Information Processing Systems</em>, NeurIPS 2024.</div>
+                    <div class="mt-1">
+                        [<a href="https://arxiv.org/pdf/2407.11052">PDF</a>]
+                        [<a href="https://github.com/pygda-team/pygda">Code</a>]
+                    </div>
+                </div>
 
-  <tbody>
+                <div class="publication-item" data-year="2024">
+                    <div class="pub-title">Multi-Chain Graphs of Graphs: A New Approach to Analyzing Blockchain Datasets</div>
+                    <div class="author-list">Bingqiao Luo, <strong>Zhen Zhang</strong>, Qian Wang, Bingsheng He</div>
+                    <div><em>The Thirty-eighth Annual Conference on Neural Information Processing Systems</em>, NeurIPS 2024.</div>
+                    <div class="mt-1">
+                        [<a href="https://openreview.net/pdf?id=mlbVgVKwD7">PDF</a>]
+                        [<a href="https://github.com/Xtra-Computing/Cryptocurrency-Graphs-of-graphs">Code</a>]
+                    </div>
+                </div>
 
-     <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       WWW 2025
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://arxiv.org/pdf/2502.03033">
-          <papertitle>Aggregate to Adapt: Node-Centric Aggregation for Multi-Source-Free Graph Domain Adaptation</papertitle>
-        </a>
-        <br>
-        <strong>Zhen Zhang</strong>, Bingsheng He
-        <br>
-        <em>ACM The Web Conference</em>, 2025.
-        <br>
-        <a href="https://arxiv.org/pdf/2502.03033">pdf</a> / 
-        <a href="https://github.com/cszhangzhen/GraphATA">code</a>
-      </td>
-    </tr>
+                <div class="publication-item" data-year="2024">
+                    <div class="pub-title">Collaborate to Adapt: Source-Free Graph Domain Adaptation via Bi-directional Adaptation</div>
+                    <div class="author-list"><strong>Zhen Zhang</strong>, Meihan Liu, Anhui Wang, Hongyang Chen, Zhao Li, Jiajun Bu, Bingsheng He</div>
+                    <div><em>ACM The Web Conference</em>, WWW 2024.</div>
+                    <div class="mt-1">
+                        [<a href="https://arxiv.org/abs/2403.01467v1">PDF</a>]
+                        [<a href="https://github.com/cszhangzhen/GraphCTA">Code</a>]
+                    </div>
+                </div>
 
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       WSDM 2025
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://arxiv.org/pdf/2407.16959">
-          <papertitle>Dynamic Graph Transformer with Correlated Spatial-Temporal Positional Encoding</papertitle>
-        </a>
-        <br>
-        Zhe Wang, Sheng Zhou, Jiawei Chen, <strong>Zhen Zhang</strong>, Binbin Hu, Yan Feng, Chun Chen, Can Wang
-        <br>
-        <em>The 18th ACM International Conference on Web Search and Data Mining</em>, 2025.
-        <br>
-        <a href="https://arxiv.org/pdf/2407.16959">pdf</a>
-      </td>
-    </tr>
+                <div class="publication-item" data-year="2024">
+                    <div class="pub-title">EX-Graph: A Pioneering Dataset Bridging Ethereum and X</div>
+                    <div class="author-list">Qian Wang, <strong>Zhen Zhang</strong>, Zemin Liu, Shengliang Lu, Bingqiao Luo, Bingsheng He</div>
+                    <div><em>The Twelfth International Conference on Learning Representations</em>, ICLR 2024.</div>
+                    <div class="mt-1">
+                        [<a href="https://openreview.net/forum?id=juE0rWGCJW">PDF</a>]
+                        [<a href="https://etgraph.deno.dev/">Code</a>]
+                    </div>
+                </div>
 
-    <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       CSUR 2024
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dl.acm.org/doi/10.1145/3705296">
-          <papertitle>AI-powered Fraud Detection in Decentralized Finance: A Project Life Cycle Perspective</papertitle>
-        </a>
-        <br>
-        Bingqiao Luo, <strong>Zhen Zhang</strong>, Qian Wang, Anli Ke, Shengliang Lu, Bingsheng He
-        <br>
-        <em>ACM Computing Surveys</em>, 2024.
-        <br>
-        <a href="https://dl.acm.org/doi/10.1145/3705296">pdf</a> / <a href="https://dl.acm.org/journal/csur">Impact Factor: 23.8</a>
-      </td>
-    </tr>
+                <div class="publication-item" data-year="2024">
+                    <div class="pub-title">Rethinking Propagation for Unsupervised Graph Domain Adaptation</div>
+                    <div class="author-list">Meihan Liu, Zeyu Fang, <strong>Zhen Zhang</strong>, Ming Gu, Sheng Zhou, Xin Wang, Jiajun Bu</div>
+                    <div><em>The 38th Annual AAAI Conference on Artificial Intelligence</em>, AAAI 2024.</div>
+                    <div class="mt-1">
+                        [<a href="https://arxiv.org/abs/2402.05660">PDF</a>]
+                        [<a href="https://github.com/Meihan-Liu/24AAAI-A2GNN">Code</a>]
+                    </div>
+                </div>
 
-     <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       NeurIPS 2024
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://arxiv.org/pdf/2407.11052">
-          <papertitle>Revisiting, Benchmarking and Understanding Unsupervised Graph Domain Adaptation
-          </papertitle>
-        </a>
-        <br>
-        Meihan Liu, <strong>Zhen Zhang</strong>, Jiachen Tang, Jiajun Bu, Bingsheng He, Sheng Zhou
-        <br>
-        <em>The Thirty-eighth Annual Conference on Neural Information Processing Systems</em>, 2024.
-        <br>
-        <a href="https://arxiv.org/pdf/2407.11052">pdf</a> / 
-        <a href="https://github.com/pygda-team/pygda">code</a>
-      </td>
-    </tr>
+                <div class="publication-item" data-year="2023">
+                    <div class="pub-title">Live Graph Lab: Towards Open, Dynamic and Real Transaction Graphs with NFT</div>
+                    <div class="author-list"><strong>Zhen Zhang</strong>, Bingqiao Luo, Shengliang Lu, Bingsheng He</div>
+                    <div><em>The Thirty-seventh Annual Conference on Neural Information Processing Systems</em>, NeurIPS 2023.</div>
+                    <div class="mt-1">
+                        [<a href="https://openreview.net/forum?id=zr1e15kczE">PDF</a>]
+                        [<a href="https://livegraphlab.github.io/">Code</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       NeurIPS 2024
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://neurips.cc/">
-          <papertitle>Multi-Chain Graphs of Graphs: A New Approach to Analyzing Blockchain Datasets</papertitle>
-        </a>
-        <br>
-        Bingqiao Luo, <strong>Zhen Zhang</strong>, Qian Wang, Bingsheng He
-        <br>
-        <em>The Thirty-eighth Annual Conference on Neural Information Processing Systems</em>, 2024.
-        <br>
-        <a href="https://neurips.cc/">pdf</a> / 
-        <a href="https://neurips.cc/">code</a>
-      </td>
-    </tr>
+                <div class="publication-item" data-year="2023">
+                    <div class="pub-title">Real Time Index and Search Across Large Quantities of GNN Experts for Low Latency Online Learning</div>
+                    <div class="author-list">Johan Kok Zhi Kang, Sien Yi Tan, Bingsheng He, <strong>Zhen Zhang</strong></div>
+                    <div><em>The 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining</em>, KDD 2023.</div>
+                    <div class="mt-1">
+                        [<a href="https://dl.acm.org/doi/pdf/10.1145/3580305.3599893">PDF</a>]
+                    </div>
+                </div>
 
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       WWW 2024
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://arxiv.org/abs/2403.01467v1">
-          <papertitle>Collaborate to Adapt: Source-Free Graph Domain Adaptation via Bi-directional Adaptation
-          </papertitle>
-        </a>
-        <br>
-        <strong>Zhen Zhang</strong>, Meihan Liu, Anhui Wang, Hongyang Chen, Zhao Li, Jiajun Bu, Bingsheng He
-        <br>
-        <em>ACM The Web Conference</em>, 2024.
-        <br>
-        <a href="https://arxiv.org/abs/2403.01467v1">pdf</a> / 
-        <a href="https://github.com/cszhangzhen/GraphCTA">code</a>
-      </td>
-    </tr>
+                <div class="publication-item" data-year="2023">
+                    <div class="pub-title">BERT4ETH: A Pre-trained Transformer for Ethereum Fraud Detection</div>
+                    <div class="author-list">Sihao Hu, <strong>Zhen Zhang</strong>, Bingqiao Luo, Shengliang Lu, Bingsheng He, Ling Liu</div>
+                    <div><em>ACM The Web Conference</em>, WWW 2023.</div>
+                    <div class="mt-1">
+                        [<a href="https://dl.acm.org/doi/abs/10.1145/3543507.3583345">PDF</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       ICLR 2024
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://openreview.net/forum?id=juE0rWGCJW">
-          <papertitle>EX-Graph: A Pioneering Dataset Bridging Ethereum and X
-          </papertitle>
-        </a>
-        <br>
-        Qian Wang, <strong>Zhen Zhang</strong>, Zemin Liu, Shengliang Lu, Bingqiao Luo, Bingsheng He
-        <br>
-        <em>The Twelfth International Conference on Learning Representations</em>, 2024.
-        <br>
-        <a href="https://openreview.net/forum?id=juE0rWGCJW">openreview</a> /
-        <a href="https://arxiv.org/abs/2310.01015">pdf</a> / 
-        <a href="https://etgraph.deno.dev/">code</a>
-      </td>
-    </tr>
+                <div class="publication-item" data-year="2023">
+                    <div class="pub-title">Sequence-based Target Coin Prediction for Cryptocurrency Pump-and-dump</div>
+                    <div class="author-list">Sihao Hu, <strong>Zhen Zhang</strong>, Shengliang Lu, Bingsheng He, Zhao Li</div>
+                    <div><em>The ACM on Management of Data</em>, SIGMOD 2023.</div>
+                    <div class="mt-1">
+                        [<a href="https://dl.acm.org/doi/abs/10.1145/3588686">PDF</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       AAAI 2024
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://arxiv.org/abs/2402.05660">
-          <papertitle>Rethinking Propagation for Unsupervised Graph Domain Adaptation
-          </papertitle>
-        </a>
-        <br>
-        Meihan Liu, Zeyu Fang, <strong>Zhen Zhang</strong>, Ming Gu, Sheng Zhou, Xin Wang, Jiajun Bu
-        <br>
-        <em>The 38th Annual AAAI Conference on Artificial Intelligence</em>, 2024.
-        <br>
-        <a href="https://arxiv.org/abs/2402.05660">pdf</a> / 
-        <a href="https://github.com/Meihan-Liu/24AAAI-A2GNN">code</a>
-      </td>
-    </tr>
+                <div class="publication-item" data-year="2022">
+                    <div class="pub-title">Learning Spatial-preserved Skeleton Representations for Few-shot Action Recognition</div>
+                    <div class="author-list">Ning Ma, Hongyi Zhang, Xuhui Li, Sheng Zhou, <strong>Zhen Zhang</strong>, Jun Wen, Haifeng Li, Jingjun Gu, Jiajun Bu</div>
+                    <div><em>European Conference on Computer Vision</em>, ECCV 2022.</div>
+                    <div class="mt-1">
+                        [<a href="https://link.springer.com/chapter/10.1007/978-3-031-19772-7_11">PDF</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       NeurIPS 2023
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://openreview.net/forum?id=zr1e15kczE">
-          <papertitle>Live Graph Lab: Towards Open, Dynamic and Real Transaction Graphs with NFT
-          </papertitle>
-        </a>
-        <br>
-        <strong>Zhen Zhang</strong>, Bingqiao Luo, Shengliang Lu, Bingsheng He
-        <br>
-        <em>The Thirty-seventh Annual Conference on Neural Information Processing Systems</em>, 2023.
-        <br>
-        <a href="https://openreview.net/forum?id=zr1e15kczE">openreview</a> / 
-        <a href="https://arxiv.org/abs/2310.11709">pdf</a> / 
-        <a href="https://livegraphlab.github.io/">code</a>
-      </td>
-    </tr>
+                <div class="publication-item" data-year="2021">
+                    <div class="pub-title">Image Search with Text Feedback by Deep Hierarchical Attention Mutual Information Maximization</div>
+                    <div class="author-list">Chunbin Gu, Jiajun Bu, <strong>Zhen Zhang</strong>, Zhi Yu, Dongfang Ma, Wei Wang</div>
+                    <div><em>The 29th ACM International Conference on Multimedia</em>, MM 2021.</div>
+                    <div class="mt-1">
+                        [<a href="https://dl.acm.org/doi/10.1145/3474085.3475619">PDF</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       SIGKDD 2023
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dl.acm.org/doi/pdf/10.1145/3580305.3599893">
-          <papertitle>Real Time Index and Search Across Large Quantities of GNN Experts for Low Latency Online Learning
-          </papertitle>
-        </a>
-        <br>
-        Johan Kok Zhi Kang, Sien Yi Tan, Bingsheng He, <strong>Zhen Zhang</strong>
-        <br>
-        <em>The 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining</em>, 2023.
-        <br>
-        <a href="https://dl.acm.org/doi/pdf/10.1145/3580305.3599893">pdf</a>
-        </td>
-    </tr>
+                <div class="publication-item" data-year="2021">
+                    <div class="pub-title">Hierarchical Multi-View Graph Pooling with Structure Learning</div>
+                    <div class="author-list"><strong>Zhen Zhang</strong>, Jiajun Bu, Martin Ester, Jianfeng Zhang, Zhao Li, Chengwei Yao, Huifen Dai, Zhi Yu, Can Wang</div>
+                    <div><em>IEEE Transactions on Knowledge and Data Engineering</em>, TKDE 2021.</div>
+                    <div class="mt-1">
+                        [<a href="https://ieeexplore.ieee.org/abstract/document/9460814">PDF</a>]
+                        [<a href="https://github.com/cszhangzhen/MVPool">Code</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       WWW 2023
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dl.acm.org/doi/abs/10.1145/3543507.3583345">
-          <papertitle>BERT4ETH: A Pre-trained Transformer for Ethereum Fraud Detection
-          </papertitle>
-        </a>
-        <br>
-        Sihao Hu, <strong>Zhen Zhang</strong>, Bingqiao Luo, Shengliang Lu, Bingsheng He, Ling Liu
-        <br>
-        <em>ACM The Web Conference</em>, 2023.
-        <br>
-        <a href="https://dl.acm.org/doi/abs/10.1145/3543507.3583345">pdf</a>
-        </td>
-    </tr>
+                <div class="publication-item" data-year="2021">
+                    <div class="pub-title">H<sup>2</sup>MN: Graph Similarity Learning with Hierarchical Hypergraph Matching Networks</div>
+                    <div class="author-list"><strong>Zhen Zhang</strong>, Jiajun Bu, Martin Ester, Zhao Li, Chengwei Yao, Zhi Yu, Can Wang</div>
+                    <div><em>The 27th ACM SIGKDD Conference on Knowledge Discovery and Data Mining</em>, KDD 2021.</div>
+                    <div class="mt-1">
+                        [<a href="https://dl.acm.org/doi/abs/10.1145/3447548.3467328">PDF</a>]
+                        [<a href="https://github.com/cszhangzhen/H2MN">Code</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       SIGMOD 2023
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dl.acm.org/doi/abs/10.1145/3588686">
-          <papertitle>Sequence-based Target Coin Prediction for Cryptocurrency Pump-and-dump
-          </papertitle>
-        </a>
-        <br>
-        Sihao Hu, <strong>Zhen Zhang</strong>, Shengliang Lu, Bingsheng He, Zhao Li
-        <br>
-        <em>The ACM on Management of Data</em>, 2023.
-        <br>
-        <a href="https://dl.acm.org/doi/abs/10.1145/3588686">pdf</a>
-        </td>
-    </tr>
+                <div class="publication-item" data-year="2021">
+                    <div class="pub-title">Direction-Aware User Recommendation Based on Asymmetric Network Embedding</div>
+                    <div class="author-list">Sheng Zhou, Xin Wang, Martin Ester, Bolang Li, Chen Ye, <strong>Zhen Zhang</strong>, Can Wang, Jiajun Bu</div>
+                    <div><em>ACM Transactions on Information System</em>, TOIS 2021.</div>
+                    <div class="mt-1">
+                        [<a href="https://dl.acm.org/doi/abs/10.1145/3466754">PDF</a>]
+                        [<a href="https://github.com/zhoushengisnoob/DNE">Code</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       ECCV 2022
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://link.springer.com/chapter/10.1007/978-3-031-19772-7_11">
-          <papertitle>Learning Spatial-preserved Skeleton Representations for Few-shot Action Recognition
-          </papertitle>
-        </a>
-        <br>
-        Ning Ma, Hongyi Zhang, Xuhui Li, Sheng Zhou, <strong>Zhen Zhang</strong>, Jun Wen, Haifeng Li, Jingjun Gu, Jiajun Bu
-        <br>
-        <em>European Conference on Computer Vision</em>, 2022.
-        <br>
-        <a href="https://link.springer.com/chapter/10.1007/978-3-031-19772-7_11">pdf</a>
-        </td>
-    </tr>
+                <div class="publication-item" data-year="2020">
+                    <div class="pub-title">Adaptive-Step Graph Meta-Learner for Few-Shot Graph Classification</div>
+                    <div class="author-list">Ning Ma, Jiajun Bu, Jieyu Yang, <strong>Zhen Zhang</strong>, Chengwei Yao, Zhi Yu, Sheng Zhou, Xifeng Yan</div>
+                    <div><em>The 29th ACM International Conference on Information and Knowledge Management</em>, CIKM 2020.</div>
+                    <div class="mt-1">
+                        [<a href="https://dl.acm.org/doi/abs/10.1145/3340531.3411951">PDF</a>]
+                        [<a href="https://github.com/NingMa-AI/AS-MAML">Code</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       MM 2021
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dl.acm.org/doi/10.1145/3474085.3475619">
-          <papertitle>Image Search with Text Feedback by Deep Hierarchical Attention Mutual Information Maximization
-          </papertitle>
-        </a>
-        <br>
-        Chunbin Gu, Jiajun Bu, <strong>Zhen Zhang</strong>, Zhi Yu, Dongfang Ma, Wei Wang
-        <br>
-        <em>The 29th ACM International Conference on Multimedia</em>, 2021.
-        <br>
-        <a href="https://dl.acm.org/doi/10.1145/3474085.3475619">pdf</a>
-        </td>
-    </tr>
+                <div class="publication-item" data-year="2020">
+                    <div class="pub-title">Learning Temporal Interaction Graph Embedding via Coupled Memory Networks</div>
+                    <div class="author-list"><strong>Zhen Zhang</strong>, Jiajun Bu, Martin Ester, Jianfeng Zhang, Chengwei Yao, Zhao Li, Can Wang</div>
+                    <div><em>ACM The Web Conference</em>, WWW 2020.</div>
+                    <div class="mt-1">
+                        [<a href="https://dl.acm.org/doi/abs/10.1145/3366423.3380076">PDF</a>]
+                        [<a href="https://github.com/cszhangzhen/TigeCMN">Code</a>]
+                    </div>
+                </div>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       TKDE 2021
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://ieeexplore.ieee.org/abstract/document/9460814">
-          <papertitle>Hierarchical Multi-View Graph Pooling with Structure Learning
-          </papertitle>
-        </a>
-        <br>
-        <strong>Zhen Zhang</strong>, Jiajun Bu, Martin Ester, Jianfeng Zhang, Zhao Li, Chengwei Yao, Huifen Dai, Zhi Yu, Can Wang
-        <br>
-        <em>IEEE Transactions on Knowledge and Data Engineering</em>, 2021.
-        <br>
-        <a href="https://ieeexplore.ieee.org/abstract/document/9460814">pdf</a> /
-        <a href="https://github.com/cszhangzhen/MVPool">code</a>
-        </td>
-    </tr>
+                <div class="publication-item" data-year="2018">
+                    <div class="pub-title">ANRL: Attributed Network Representation Learning via Deep Neural Networks</div>
+                    <div class="author-list"><strong>Zhen Zhang</strong>, Hongxia Yang, Jiajun Bu, Sheng Zhou, Pinggang Yu, Jianwei Zhang, Martin Ester, Can Wang</div>
+                    <div><em>The Twenty-Seventh International Joint Conference on Artificial Intelligence</em>, IJCAI 2018.</div>
+                    <div class="mt-1">
+                        [<a href="https://www.ijcai.org/proceedings/2018/438">PDF</a>]
+                        [<a href="https://github.com/cszhangzhen/ANRL">Code</a>]
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="experience" class="page-section">
+            <h2 class="section-title">Experience</h2>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       SIGKDD 2021
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dl.acm.org/doi/abs/10.1145/3447548.3467328">
-          <papertitle>H<sup>2</sup>MN: Graph Similarity Learning with Hierarchical Hypergraph Matching Networks
-          </papertitle>
-        </a>
-        <br>
-        <strong>Zhen Zhang</strong>, Jiajun Bu, Martin Ester, Zhao Li, Chengwei Yao, Zhi Yu, Can Wang
-        <br>
-        <em>The 27th ACM SIGKDD Conference on Knowledge Discovery and Data Mining</em>, 2021.
-        <br>
-        <a href="https://dl.acm.org/doi/abs/10.1145/3447548.3467328">pdf</a> /
-        <a href="https://github.com/cszhangzhen/H2MN">code</a>
-        </td>
-    </tr>
+            <div class="university-section">
+                <div class="row">
+                    <div class="col-md-4 university-member">
+                        <div class="university-photo">
+                            <img src="images/nju_logo.jpg" alt="Nanjing University">
+                        </div>
+                        <div class="lead"><strong>Tenure-Track Asisitant Professor</strong> <br>
+                            <strong>Nanjing University</strong> <br>
+                            <strong>Sep 2025 - Current</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-4 university-member">
+                        <div class="university-photo">
+                            <img src="images/NUS_logo_color.jpg" alt="National University of Singapore">
+                        </div>
+                        <div class="lead"><strong>Research Fellow</strong> <br>
+                            <strong>National University of Singapore</strong> <br>
+                            <strong>Sep 2021 - Aug 2025</strong>
+                        </div>
+                    </div>
+                    <div class="col-md-4 university-member">
+                        <div class="university-photo">
+                            <img src="images/ZJU_logo.png" alt="Zhejiang University">
+                        </div>
+                        <div class="lead"><strong>Ph.D. in Computer Science</strong> <br>
+                            <strong>Zhejiang University</strong> <br>
+                            <strong>Sep 2015 - Jun 2021</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       TOIS 2021
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dl.acm.org/doi/abs/10.1145/3466754">
-          <papertitle>Direction-Aware User Recommendation Based on Asymmetric Network Embedding
-          </papertitle>
-        </a>
-        <br>
-        Sheng Zhou, Xin Wang, Martin Ester, Bolang Li, Chen Ye, <strong>Zhen Zhang</strong>, Can Wang, Jiajun Bu
-        <br>
-        <em>ACM Transactions on Information System</em>, 2021.
-        <br>
-        <a href="https://dl.acm.org/doi/abs/10.1145/3466754">pdf</a> /
-        <a href="https://github.com/zhoushengisnoob/DNE">code</a>
-        </td>
-    </tr>
+        <section id="projects" class="page-section">
+            <h2 class="section-title">Projects</h2>
 
+            <div class="project-section">
+                <div class="row">
+                    <div class="col-md-12 university-member">
+                        <div class="university-photo">
+                            <img src="images/pygda_logo.png" alt="Nanjing University">
+                        </div>
+                        <div class="lead"><strong>PyGDA is a Python library for Graph Domain Adaptation</strong> <br>
+                            <strong>Library: <a href="https://github.com/pygda-team/pygda">https://github.com/pygda-team/pygda</a></strong> <br>
+                            <strong>Docs: <a href="https://pygda.readthedocs.io/en/stable/">https://pygda.readthedocs.io/en/stable/</a></strong>
+                        </div>
+                    </div>
+                    <p class="lead">PyGDA is a Python library for Graph Domain Adaptation built upon PyTorch and PyG to easily train graph domain adaptation models in a sklearn style. PyGDA includes 20+ graph domain adaptation models. See examples with PyGDA below! <br>
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       CIKM 2020
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dl.acm.org/doi/abs/10.1145/3340531.3411951">
-          <papertitle>Adaptive-Step Graph Meta-Learner for Few-Shot Graph Classification
-          </papertitle>
-        </a>
-        <br>
-        Ning Ma, Jiajun Bu, Jieyu Yang, <strong>Zhen Zhang</strong>, Chengwei Yao, Zhi Yu, Sheng Zhou, Xifeng Yan
-        <br>
-        <em>The 29th ACM International Conference on Information and Knowledge Management</em>, 2020.
-        <br>
-        <a href="https://dl.acm.org/doi/abs/10.1145/3340531.3411951">pdf</a> /
-        <a href="https://github.com/NingMa-AI/AS-MAML">code</a>
-        </td>
-    </tr>
+                    <strong>Graph Domain Adaptation Using PyGDA with 5 Lines of Code</strong>
+                    <pre>
+                        <code class="language-python">
+                            from pygda.models import A2GNN
+                            
+                            # choose a graph domain adaptation model
+                            model = A2GNN(in_dim=num_features, hid_dim=args.nhid, num_classes=num_classes, device=args.device)
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       WWW 2020
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://dl.acm.org/doi/abs/10.1145/3366423.3380076">
-          <papertitle>Learning Temporal Interaction Graph Embedding via Coupled Memory Networks
-          </papertitle>
-        </a>
-        <br>
-        <strong>Zhen Zhang</strong>, Jiajun Bu, Martin Ester, Jianfeng Zhang, Chengwei Yao, Zhao Li, Can Wang
-        <br>
-        <em>ACM The Web Conference</em>, 2020.
-        <br>
-        <a href="https://dl.acm.org/doi/abs/10.1145/3366423.3380076">pdf</a> /
-        <a href="https://github.com/cszhangzhen/TigeCMN">code</a>
-        </td>
-    </tr>
+                            # train the model
+                            model.fit(source_data, target_data)
 
-    <!-- paper -->
-     <tr>
-      <td style="padding:60px;width:25%;vertical-align:middle">
-       IJCAI 2018
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://www.ijcai.org/proceedings/2018/438">
-          <papertitle>ANRL: Attributed Network Representation Learning via Deep Neural Networks
-          </papertitle>
-        </a>
-        <br>
-        <strong>Zhen Zhang</strong>, Hongxia Yang, Jiajun Bu, Sheng Zhou, Pinggang Yu, Jianwei Zhang, Martin Ester, Can Wang
-        <br>
-        <em>The Twenty-Seventh International Joint Conference on Artificial Intelligence</em>, 2018.
-        <br>
-        <a href="https://www.ijcai.org/proceedings/2018/438">pdf</a> /
-        <a href="https://github.com/cszhangzhen/ANRL">code</a>
-        </td>
-    </tr>
+                            # evaluate the performance
+                            logits, labels = model.predict(target_data)
+                        </code>
+                    </pre>
+                    </p>
 
-  </tbody>
-</table>
-</div>
+                    <p class="lead">
+                    <strong>PyGDA is featured for:</strong>
+                    <ul class="lead" style="padding-left: 40px;">
+                        <li class="news-item">Consistent APIs and comprehensive documentation</li>
+                        <li class="news-item">Cover 20+ graph domain adaptation models</li>
+                        <li class="news-item">Scalable architecture that efficiently handles large graph datasets through mini-batching and sampling techniques</li>
+                        <li class="news-item">Seamlessly integrated data processing with PyG, ensuring full compatibility with PyG data structures</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </section>
 
-<hr class="soft">
-<button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
-class="collapsible" data-toggle="collapse" data-target="#content-education" id="education">
-<heading id="Projects">Projects</heading>
-</button>
-<div id="content-education" class="collapse in">
-
-<div class="project-container">
-  <div class="project-item">
-    <div class="project-image">
-      <img src='images/pygda_logo.png' alt="PyGDA Logo">
     </div>
-    <div class="project-content">
-      <papertitle style="color:darkblue"><big>PyGDA</big> </papertitle>
-      <papertitle><big> is a Python library for Graph Domain Adaptation</big></papertitle>
-      <br>
-      <ul class="project-links">
-        <li>Library: <a href="https://github.com/pygda-team/pygda">https://github.com/pygda-team/pygda</a></li>
-        <li>Docs: <a href="https://pygda.readthedocs.io/en/stable/">https://pygda.readthedocs.io/en/stable/</a> </li>
-      </ul>
-    </div>
-  </div>
-</div>
 
-</div>
-
-<hr class="soft">
-<button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
-class="collapsible" data-toggle="collapse" data-target="#content-education" id="education">
-<heading id="Experience">Experience and Education</heading>
-</button>
-<div id="content-education" class="collapse in">
-
-<table border=0 class="bg_colour"
-  style="padding:20px;width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-  <tbody>
-
-    <tr>
-      <td style="padding:10px;width:25%;vertical-align:text-top;">
-        <div class="one">
-          <img src='images/NUS_logo_color.jpg' width="150">
-        </div>
-      </td>
-      <td style="padding:10px;width:75%;vertical-align:text-top;">
-        <papertitle style="color:darkblue"><big>Research Fellow</big> </papertitle>
-        <papertitle><big> | National University of Singapore</big></papertitle>
-        <br>
-        Sep 2021 - Current
-        <br>
-        <ul>
-          <li>Postdoctoral Researcher</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="padding:10px;width:25%;vertical-align:text-top;">
-        <div class="one">
-          <img src='images/ZJU_logo.png' width="150">
-        </div>
-      </td>
-      <td style="padding:10px;width:75%;vertical-align:text-top;">
-        <papertitle style="color:darkblue"><big>Ph.D. in Computer Science</big> </papertitle>
-        <papertitle><big> | Zhejiang University</big></papertitle>
-        <br>
-        Sep 2015 - Jun 2021
-        <br>
-        <ul>
-          <li>Thesis: Multi-granularity Graph Representation Learning with Neural Networks</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-<hr class="soft">
-
-<button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
-class="collapsible" data-toggle="collapse" data-target="#content-academic" id="academic">
-<heading id="Service">Academic Activities</heading>
-</button>
-<div id="content-academic" class="collapse in">
-<table border=0 class="bg_colour"
-  style="padding:20px;width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-  <tbody>
-
-    <tr>
-      <td>
-        <ul>
-        <li>Conference AC/SAC/SPC</li>
-        <ul>
-            <li>Senior Program Committee Member of IJCAI 2025</li>
-        </ul>
-
-          <li>Conference reviewer</li>
-           <ul>
-             <li>Program Committee Member of ICML</li>
-             <li>Program Committee Member of ICLR</li>
-             <li>Program Committee Member of NeurIPS</li>
-             <li>Program Committee Member of KDD</li>
-             <li>Program Committee Member of WWW</li>
-             <li>Program Committee Member of AAAI</li>
-             <li>Program Committee Member of CVPR</li>
-             <li>Program Committee Member of ICCV</li>
-             <li>Program Committee Member of ECCV</li>
-             <li>Program Committee Member of CIKM</li>
-             <li>Program Committee Member of SDM</li>
-           </ul>
-          <li>Journal reviewer</li>
-           <ul>
-             <li>Invited Reviewer for IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</li>
-             <li>Invited Reviewer for IEEE Transactions on Image Processing (TIP)</li>
-             <li>Invited Reviewer for IEEE Transactions on Knowledge and Data Engineering (TKDE)</li>
-             <li>Invited Reviewer for ACM Transactions on Information Systems (TOIS)</li>
-             <li>Invited Reviewer for ACM Computing Surveys (CSUR)</li>
-             <li>Invited Reviewer for ACM Transactions on Intelligent Systems and Technology (TIST)</li>
-             <li>Invited Reviewer for IEEE Transactions on Neural Networks and Learning Systems (TNNLS)</li>
-             <li>Invited Reviewer for Neurocomputing</li>
-             <li>Invited Reviewer for Neural Networks</li>
-             <li>Invited Reviewer for Information Science</li>
-             <li>Invited Reviewer for Computers & Security</li>
-             <li>Invited Reviewer for ACM Transactions on the Web</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<hr class="soft">
-<button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
-class="collapsible" data-toggle="collapse" data-target="#content-award" id="award">
-<heading id="Honors">Honors & Awards</heading>
-</button>
-<div id="content-award" class="collapse in">
-<table border=0 class="bg_colour"
-  style="padding:20px;width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-  <tbody>
-    <tr>
-      <td>
-        <ul>
-          <li>Outstanding Doctoral Thesis of Zhejiang University</li>
-          <li>Nominated for Outstanding Doctoral Thesis in Zhejiang Province</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<button style="border:0px transparent; background-color: transparent;outline:none;" type="button"
-class="collapsible" data-toggle="collapse" data-target="#content-award" id="end">
-</button>
-
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<!-- Footer Counter with matching background -->
-    <footer class="footer-counter">
-        <div class="container">
-            <p>&copy;2025. All rights reserved.
-            </p>
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>© 2025. All rights reserved.</p>
         </div>
     </footer>
 
-</body>
+    <!-- 护眼模式切换按钮 -->
+    <button class="eye-protection-toggle" id="eyeProtectionToggle" title="Toggle eye protection mode">
+        <i class="fas fa-eye"></i>
+    </button>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 护眼模式切换功能
+        const eyeProtectionToggle = document.getElementById('eyeProtectionToggle');
+        const body = document.body;
+        
+        // 检查本地存储中的偏好设置
+        if (localStorage.getItem('eyeProtectionMode') === 'enabled') {
+            body.classList.add('eye-protection');
+            eyeProtectionToggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
+        }
+        
+        eyeProtectionToggle.addEventListener('click', function() {
+            body.classList.toggle('eye-protection');
+            
+            if (body.classList.contains('eye-protection')) {
+                localStorage.setItem('eyeProtectionMode', 'enabled');
+                eyeProtectionToggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                localStorage.removeItem('eyeProtectionMode');
+                eyeProtectionToggle.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        });
+        
+        // 页面导航功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageSections = document.querySelectorAll('.page-section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 更新活跃导航链接
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 显示对应页面部分
+                    const targetPage = this.getAttribute('data-page');
+                    pageSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetPage) {
+                            section.classList.add('active');
+                        }
+                    });
+                    
+                    // 滚动到顶部
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // 处理新闻存档链接
+            document.querySelector('a[data-page="news-archive"]').addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 更新活跃导航链接
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                
+                // 显示新闻存档部分
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === 'news-archive') {
+                        section.classList.add('active');
+                    }
+                });
+                
+                // 滚动到顶部
+                window.scrollTo(0, 0);
+            });
+            
+            // 处理研究页面中的论文链接
+            const researchPubLink = document.querySelector('#research a[data-page="publications"]');
+            if (researchPubLink) {
+                researchPubLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 更新活跃导航链接
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    document.querySelector('.nav-link[data-page="publications"]').classList.add('active');
+                    
+                    // 显示论文部分
+                    pageSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === 'publications') {
+                            section.classList.add('active');
+                        }
+                    });
+                    
+                    // 滚动到顶部
+                    window.scrollTo(0, 0);
+                });
+            }
+            
+            // 论文筛选功能
+            const categoryFilters = document.querySelectorAll('.category-filters .filter-btn');
+            const yearFilters = document.querySelectorAll('.year-filters .filter-btn');
+            const publicationItems = document.querySelectorAll('.publication-item');
+            
+            let activeCategory = 'all';
+            let activeYear = 'all';
+            
+            function filterPublications() {
+                publicationItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    const year = item.getAttribute('data-year');
+                    
+                    const categoryMatch = activeCategory === 'all' || category === activeCategory;
+                    const yearMatch = activeYear === 'all' || year === activeYear;
+                    
+                    if (categoryMatch && yearMatch) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+            
+            categoryFilters.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    categoryFilters.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    activeCategory = this.getAttribute('data-filter');
+                    filterPublications();
+                });
+            });
+            
+            yearFilters.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    yearFilters.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    activeYear = this.getAttribute('data-year');
+                    filterPublications();
+                });
+            });
+        });
+    </script>
+</body>
 </html>
+
+
+
+
+
+
+
